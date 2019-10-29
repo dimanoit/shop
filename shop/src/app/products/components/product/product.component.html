@@ -1,0 +1,18 @@
+<div class="product-card">
+  <div class="img-container flex-container">
+    <img [src]='productModel.imgUrl'>
+  </div>
+  <div class="product-info">
+    <p class="product-name"  [innerHTML]='truncateString()'></p>
+    <div class="buy-info">
+      <p class="exist" *ngIf="productModel.isAvailable;else notExist">В наличии</p>
+      <ng-template #notExist>
+        <p class="not-exist"> Нет в наличии</p>
+      </ng-template>
+      <div class="price-section">
+        <p class="product-price">{{productModel.price}}$</p>
+        <button (click)='onBuy()'>Buy</button>
+      </div>
+    </div>
+  </div>
+</div>
